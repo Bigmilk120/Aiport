@@ -11,7 +11,7 @@ public class User {
     private String firstName;
     private String lastName;
     private Date dateOfBirth;
-    private UserPrivileges privilege;
+    private UserPrivileges.PrivilegesUser privilege;
 
     public User() {
     }
@@ -21,7 +21,7 @@ public class User {
         this.firstName = firstName;
         this.lastName = lastName;
         this.dateOfBirth = dateOfBirth;
-        this.privilege = privilege;
+        this.privilege = privilege.getPrivilege();
     }
 
     public int getID() {
@@ -56,11 +56,11 @@ public class User {
         this.dateOfBirth = dateOfBirth;
     }
 
-    public UserPrivileges getPrivilege() {
+    public UserPrivileges.PrivilegesUser getPrivilege() {
         return privilege;
     }
 
-    public void setPrivilege(UserPrivileges privilege) {
+    public void setPrivilege(UserPrivileges.PrivilegesUser privilege) {
         this.privilege = privilege;
     }
 }

@@ -1,5 +1,6 @@
 package com.airport.Controllers;
 
+import com.airport.Enums.UserPrivileges;
 import com.airport.Models.User;
 import com.airport.Repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,7 +21,7 @@ public class UserController {
         return userRepository.findAll();
     }
 
-    @PostMapping(value="/addUser")
+    @PostMapping(value="/userAdd")
     public void addUser(@RequestBody User user){
         userRepository.insert(user);
     }
