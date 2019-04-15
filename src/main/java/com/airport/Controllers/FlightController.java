@@ -1,7 +1,7 @@
 package com.airport.Controllers;
 
-import com.airport.Models.Plane;
-import com.airport.Repository.PlaneRepository;
+import com.airport.Models.Flight;
+import com.airport.Repository.FlightRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -11,16 +11,18 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 
 @RestController
-public class PlaneController {
+public class FlightController {
     @Autowired
-    PlaneRepository planeRepository;
+    FlightRepository flightRepository;
 
-    @GetMapping(value="/planesShow")
-    public List<Plane> planesShow(){
-        return planeRepository.findAll();
+    @GetMapping(value="/flightsShow")
+    public List<Flight> flightShow(){
+        return flightRepository.findAll();
     }
-    @PostMapping(value="/planeAdd")
-    public void planeAdd(@RequestBody Plane plane){
-        planeRepository.insert(plane);
+
+    @PostMapping(value="/flightAdd")
+    public void flightAdd(@RequestBody Flight flight){
+        flightRepository.insert(flight);
     }
+
 }

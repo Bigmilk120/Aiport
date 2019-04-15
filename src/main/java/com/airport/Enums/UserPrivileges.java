@@ -1,6 +1,8 @@
 package com.airport.Enums;
 
 public class UserPrivileges {
+
+
     public enum PrivilegesUser{
         NOLOGGED, LOGGED, HELPDESK, OWNER;
     }
