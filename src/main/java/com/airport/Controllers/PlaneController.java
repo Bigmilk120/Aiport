@@ -2,6 +2,7 @@ package com.airport.Controllers;
 
 import com.airport.Models.Plane;
 import com.airport.Repository.PlaneRepository;
+import com.mongodb.DBObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -19,8 +20,14 @@ public class PlaneController {
     public List<Plane> planesShow(){
         return planeRepository.findAll();
     }
+
     @PostMapping(value="/planeAdd")
     public void planeAdd(@RequestBody Plane plane){
         planeRepository.insert(plane);
+    }
+
+    @PostMapping(value="/planeShow")
+    public List<Plane> planeShowByDestination(){
+        return planeRepository.findAll();
     }
 }

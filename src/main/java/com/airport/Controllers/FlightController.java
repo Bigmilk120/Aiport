@@ -25,4 +25,9 @@ public class FlightController {
         flightRepository.insert(flight);
     }
 
+    @PostMapping(value="/flightsShow")
+    public Flight flightShowDate(@RequestBody Flight flight){
+        return flightRepository.findByOriginAndDestination(flight.getOrigin(),flight.getDestination());
+    }
+
 }
