@@ -1,10 +1,12 @@
 package com.airport.Models;
 
 import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.sql.Time;
 import java.util.List;
 
+@Document
 public class Flight {
     @Id
     int id;
@@ -15,6 +17,16 @@ public class Flight {
     boolean isLanded;
     Plane plane;
     List<User> users;
+
+    public Flight(int id, String origin, String destination, String date, String time, boolean isLanded, Plane plane) {
+        this.id = id;
+        this.origin = origin;
+        this.destination = destination;
+        this.date = date;
+        this.time = time;
+        this.isLanded = isLanded;
+        this.plane = plane;
+    }
 
     public int getId() {
         return id;
