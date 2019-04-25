@@ -1,5 +1,6 @@
 package com.airport.Controllers;
 
+import com.airport.Models.DatesToFilter;
 import com.airport.Models.Flight;
 import com.airport.Models.Plane;
 import com.airport.Repository.FlightRepository;
@@ -9,8 +10,8 @@ import com.mongodb.DBObject;
 import com.mongodb.MongoClient;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.mongodb.core.query.Criteria;
+import org.springframework.data.mongodb.core.query.Query;
 import org.springframework.data.mongodb.core.query.Update;
-import org.springframework.data.mongodb.repository.Query;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -40,5 +41,11 @@ public class FlightController {
     public List<Flight> flightShowByDestination(@RequestBody String destination){
         return flightRepository.findByDestination(destination);
     }
+
+    @PostMapping(value="/flightDate")
+    public List<Flight> flightshowFromDateToDate(@RequestBody DatesToFilter date){
+        return flightRepository.findByDateBetween(date.getDateFrom(),date.getDateTo());
+    }
+
 
 }
