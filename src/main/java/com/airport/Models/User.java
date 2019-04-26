@@ -2,14 +2,26 @@ package com.airport.Models;
 
 import com.airport.Enums.UserPrivileges;
 import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.util.Date;
 
+@Document
 public class User {
     @Id
     private int ID;
     private String firstName;
     private String lastName;
+    private String password;
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
     private Date dateOfBirth;
     private UserPrivileges.PrivilegesUser privilege;
 

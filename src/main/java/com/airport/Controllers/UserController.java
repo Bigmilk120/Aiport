@@ -16,6 +16,9 @@ public class UserController {
     @Autowired
     UserRepository userRepository;
 
+    User loggedUser = new User();
+    boolean ifLogged = false;
+
     @GetMapping(value="/usersShow")
     public List<User> usersShow(){
         return userRepository.findAll();
@@ -26,4 +29,19 @@ public class UserController {
         userRepository.insert(user);
     }
 
+    @PostMapping(value="/logging")
+    public User loggingUSer(@RequestBody User temp){
+        User next = new User();
+        if(userRepository.findByFirstNameEqualsAndPasswordEquals(temp.getFirstName(), temp.getPassword())==null){
+            return next;
+        }
+        User user = userRepository.findByFirstNameEqualsAndPasswordEquals(temp.getFirstName(), temp.getPassword());
+        if(user.getID()>=1){
+            loggedUser.setFirstName(temp.getFirstName());
+            loggedUser.setPassword(temp.getPassword());
+            ifLogged = true;
+            return user;
+        }
+        return next;
+    }
 }
