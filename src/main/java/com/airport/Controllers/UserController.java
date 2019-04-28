@@ -31,17 +31,20 @@ public class UserController {
 
     @PostMapping(value="/logging")
     public User loggingUSer(@RequestBody User temp){
-        User next = new User();
+        User user = new User();
         if(userRepository.findByFirstNameEqualsAndPasswordEquals(temp.getFirstName(), temp.getPassword())==null){
-            return next;
-        }
-        User user = userRepository.findByFirstNameEqualsAndPasswordEquals(temp.getFirstName(), temp.getPassword());
-        if(user.getID()>=1){
-            loggedUser.setFirstName(temp.getFirstName());
-            loggedUser.setPassword(temp.getPassword());
-            ifLogged = true;
             return user;
         }
-        return next;
+        user = userRepository.findByFirstNameEqualsAndPasswordEquals(temp.getFirstName(), temp.getPassword());
+        loggedUser.setFirstName(temp.getFirstName());
+        loggedUser.setPassword(temp.getPassword());
+        ifLogged = true;
+        return user;
     }
+
+    @GetMapping(value="/isLogged")
+    public boolean isIfLogged(){
+        return ifLogged;
+    }
+
 }
