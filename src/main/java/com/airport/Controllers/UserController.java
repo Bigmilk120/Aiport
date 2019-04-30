@@ -1,4 +1,4 @@
-package com.airport.Controllers;
+package com.airport.Controllers;vfh
 
 import com.airport.Enums.UserPrivileges;
 import com.airport.Models.User;
@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @RestController
@@ -16,8 +17,6 @@ public class UserController {
     @Autowired
     UserRepository userRepository;
 
-    User loggedUser = new User();
-    boolean ifLogged = false;
 
     @GetMapping(value="/usersShow")
     public List<User> usersShow(){
@@ -30,21 +29,12 @@ public class UserController {
     }
 
     @PostMapping(value="/logging")
-    public User loggingUSer(@RequestBody User temp){
+    public boolean loggingUSer(@RequestBody User temp){
         User user = new User();
         if(userRepository.findByFirstNameEqualsAndPasswordEquals(temp.getFirstName(), temp.getPassword())==null){
-            return user;
+            return false;
         }
-        user = userRepository.findByFirstNameEqualsAndPasswordEquals(temp.getFirstName(), temp.getPassword());
-        loggedUser.setFirstName(temp.getFirstName());
-        loggedUser.setPassword(temp.getPassword());
-        ifLogged = true;
-        return user;
-    }
-
-    @GetMapping(value="/isLogged")
-    public boolean isIfLogged(){
-        return ifLogged;
+        return true;
     }
 
 }
