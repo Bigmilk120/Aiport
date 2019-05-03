@@ -3,20 +3,20 @@ package com.airport.Models;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
-import java.sql.Time;
 import java.util.List;
 
 @Document
 public class Flight {
     @Id
+    private
     int id;
-    String origin;
-    String destination;
-    String date;
-    String time;
-    boolean isLanded;
-    Plane plane;
-    List<User> users;
+    private String origin;
+    private String destination;
+    private String date;
+    private String time;
+    private boolean isLanded;
+    private Plane plane;
+    private List<User> users;
 
     public Flight(int id, String origin, String destination, String date, String time, boolean isLanded, Plane plane) {
         this.id = id;

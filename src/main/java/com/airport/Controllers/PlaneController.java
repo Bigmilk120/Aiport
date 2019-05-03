@@ -2,7 +2,6 @@ package com.airport.Controllers;
 
 import com.airport.Models.Plane;
 import com.airport.Repository.PlaneRepository;
-import com.mongodb.DBObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;

@@ -5,10 +5,12 @@ import org.springframework.data.annotation.Id;
 
 public class Plane {
     @Id
+    private
     int ID;
-    String brandName, model;
-    int fuelTank; //0 - empty, 100 - full
-    int passagersLimit;
+    private String brandName;
+    private String model;
+    private int fuelTank; //0 - empty, 100 - full
+    private int passagersLimit;
 
     public Plane() {
     }

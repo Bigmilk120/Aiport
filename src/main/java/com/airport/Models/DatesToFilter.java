@@ -1,8 +1,8 @@
 package com.airport.Models;
 
 public class DatesToFilter {
-    String dateFrom;
-    String dateTo;
+    private String dateFrom;
+    private String dateTo;
 
     public DatesToFilter(String dateFrom, String dateTo) {
         this.dateFrom = dateFrom;

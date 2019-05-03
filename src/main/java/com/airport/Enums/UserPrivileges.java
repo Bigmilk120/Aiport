@@ -4,10 +4,10 @@ public class UserPrivileges {
 
 
     public enum PrivilegesUser{
-        NOLOGGED, LOGGED, HELPDESK, OWNER;
+        NOLOGGED, LOGGED, HELPDESK, OWNER
     }
 
-    PrivilegesUser privilege;
+    private PrivilegesUser privilege;
 
     public UserPrivileges() {
     }
