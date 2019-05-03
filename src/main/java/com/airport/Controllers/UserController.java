@@ -1,4 +1,4 @@
-package com.airport.Controllers;vfh
+package com.airport.Controllers;
 
 import com.airport.Enums.UserPrivileges;
 import com.airport.Models.User;
@@ -30,7 +30,6 @@ public class UserController {
 
     @PostMapping(value="/logging")
     public boolean loggingUSer(@RequestBody User temp){
-        User user = new User();
         if(userRepository.findByFirstNameEqualsAndPasswordEquals(temp.getFirstName(), temp.getPassword())==null){
             return false;
         }

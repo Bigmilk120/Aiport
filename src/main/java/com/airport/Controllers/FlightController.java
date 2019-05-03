@@ -47,5 +47,9 @@ public class FlightController {
         return flightRepository.findByDateBetween(date.getDateFrom(),date.getDateTo());
     }
 
+    @PostMapping(value="/flightToFrom")
+    public List<Flight> flightshowToFrom(@RequestBody Flight flight){
+        return flightRepository.findByDestinationAndOrigin(flight.getDestination(), flight.getOrigin());
+    }
 
 }

@@ -8,4 +8,5 @@ import java.util.List;
 public interface FlightRepository extends MongoRepository<Flight, String> {
     List<Flight> findByDestination(String destination);
     List<Flight> findByDateBetween(String from, String to);
+    List<Flight> findByDestinationAndOrigin(String destination, String origin);
 }
